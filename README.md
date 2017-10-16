@@ -4,6 +4,7 @@ Create models that are not bound to the database and take advantage of the Activ
 
 [![Gem Version](https://badge.fury.io/rb/tableless.svg)](https://badge.fury.io/rb/tableless)
 [![Build Status](https://travis-ci.org/hardpixel/tableless.svg?branch=master)](https://travis-ci.org/hardpixel/tableless)
+[![Maintainability](https://api.codeclimate.com/v1/badges/853a6013a50339b2baea/maintainability)](https://codeclimate.com/github/hardpixel/tableless/maintainability)
 
 ## Installation
 
@@ -23,7 +24,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Define a model like this:
+
+```ruby
+class ContactMessage < ActiveRecord::Base
+  include Tableless
+
+  attribute :name,  :string
+  attribute :email, :string
+
+  validates :name, :email, presence: true
+end
+```
+
+You can now use the model in a view like this:
+
+```ruby
+<%= form_for :message, @message do |f| %>
+  Name: <%= f.text_field :name %>
+  Email: <%= f.text_field :email %>
+<% end %>
+```
+
+And in the controller:
+
+```ruby
+def message
+  @message = ContactMessage.new(params[:message])
+
+  if @message.valid?
+    # Process the message...
+  end
+end
+```
 
 ## Development
 
