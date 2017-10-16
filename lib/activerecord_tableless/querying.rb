@@ -1,4 +1,4 @@
-module ActiverecordTableless
+module Tableless
   module Querying
     extend ActiveSupport::Concern
 

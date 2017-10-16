@@ -1,4 +1,4 @@
-module ActiverecordTableless
+module Tableless
   module Persistence
     extend ActiveSupport::Concern
 

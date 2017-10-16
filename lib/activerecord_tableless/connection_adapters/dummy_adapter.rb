@@ -1,8 +1,8 @@
-module ActiverecordTableless
+module Tableless
   class DummyAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
     def initialize(*)
       super
-      @schema_cache = ActiverecordTableless::SchemaCache.new
+      @schema_cache = Tableless::SchemaCache.new
     end
   end
 end

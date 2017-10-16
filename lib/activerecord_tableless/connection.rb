@@ -1,13 +1,13 @@
-require 'activerecord_tableless/connection_adapters/schema_cache'
-require 'activerecord_tableless/connection_adapters/dummy_adapter'
+require 'tableless/connection_adapters/schema_cache'
+require 'tableless/connection_adapters/dummy_adapter'
 
-module ActiverecordTableless
+module Tableless
   module Connection
     extend ActiveSupport::Concern
 
     module ClassMethods
       def connection
-        @connection ||= ActiverecordTableless::DummyAdapter.new nil
+        @connection ||= Tableless::DummyAdapter.new nil
       end
     end
   end

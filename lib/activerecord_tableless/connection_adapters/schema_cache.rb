@@ -1,4 +1,4 @@
-module ActiverecordTableless
+module Tableless
   class SchemaCache
     def columns_hash(table_name)
       {}

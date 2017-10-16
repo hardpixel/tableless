@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in activerecord_tableless.gemspec
+# Specify your gem's dependencies in tableless.gemspec
 gemspec

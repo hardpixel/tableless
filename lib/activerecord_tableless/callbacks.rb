@@ -1,4 +1,4 @@
-module ActiverecordTableless
+module Tableless
   module Callbacks
     extend ActiveSupport::Concern
 

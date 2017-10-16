@@ -1,18 +1,18 @@
 require 'active_record'
-require 'activerecord_tableless/version'
+require 'tableless/version'
 
-module ActiverecordTableless
-  autoload :Connection,  'activerecord_tableless/connection'
-  autoload :Querying,    'activerecord_tableless/querying'
-  autoload :Persistence, 'activerecord_tableless/persistence'
-  autoload :Callbacks,   'activerecord_tableless/callbacks'
+module Tableless
+  autoload :Connection,  'tableless/connection'
+  autoload :Querying,    'tableless/querying'
+  autoload :Persistence, 'tableless/persistence'
+  autoload :Callbacks,   'tableless/callbacks'
 
   extend ActiveSupport::Concern
 
   included do
-    include ActiverecordTableless::Connection
-    include ActiverecordTableless::Persistence
-    include ActiverecordTableless::Querying
-    include ActiverecordTableless::Callbacks
+    include Tableless::Connection
+    include Tableless::Persistence
+    include Tableless::Querying
+    include Tableless::Callbacks
   end
 end
