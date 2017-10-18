@@ -9,6 +9,10 @@ module Tableless
       def connection
         @connection ||= Tableless::DummyAdapter.new nil
       end
+
+      def attribute_names
+        @attributes ||= attribute_types.keys
+      end
     end
   end
 end
