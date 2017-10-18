@@ -12,7 +12,7 @@ module Tableless
       end
     end
 
-    def reload(options = nil)
+    def reload(*)
       @attributes = self.class.new.instance_variable_get("@attributes")
       @new_record = false
       self
@@ -26,7 +26,7 @@ module Tableless
     def destroy
       @_trigger_destroy_callback = true
       @destroyed = true
-      freeze
+      reload and freeze
     end
 
     private
