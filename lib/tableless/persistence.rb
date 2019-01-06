@@ -31,14 +31,14 @@ module Tableless
 
     private
 
-      def _create_record(*)
-        @new_record = false
-        true
-      end
+    def _create_record(*)
+      @new_record = false
+      true
+    end
 
-      def _update_record(*)
-        @_trigger_update_callback = true
-        true
-      end
+    def _update_record(*)
+      @_trigger_update_callback = true
+      true
+    end
   end
 end

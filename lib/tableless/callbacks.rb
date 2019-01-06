@@ -8,12 +8,12 @@ module Tableless
 
     private
 
-      def _create_record
-        _run_create_callbacks { super }
-      end
+    def _create_record
+      _run_create_callbacks { super }
+    end
 
-      def _update_record(*)
-        _run_update_callbacks { super }
-      end
+    def _update_record(*)
+      _run_update_callbacks { super }
+    end
   end
 end
