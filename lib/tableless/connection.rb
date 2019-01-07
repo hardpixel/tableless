@@ -11,7 +11,7 @@ module Tableless
       end
 
       def attribute_names
-        @attributes ||= attribute_types.keys
+        @attribute_names ||= attribute_types.keys
       end
     end
   end
