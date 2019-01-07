@@ -7,7 +7,7 @@ module Tableless
 
     module ClassMethods
       def connection
-        @connection ||= Tableless::DummyAdapter.new nil
+        @connection ||= Tableless::DummyAdapter.new(nil)
       end
 
       def attribute_names
