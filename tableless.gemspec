@@ -12,8 +12,6 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/hardpixel/tableless'
   spec.license       = 'MIT'
   spec.files         = Dir['{lib/**/*,[A-Z]*}']
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activerecord', '~> 5.0'
