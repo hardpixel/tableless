@@ -4,5 +4,9 @@ module Tableless
       super
       @schema_cache = Tableless::SchemaCache.new
     end
+
+    def schema_cache
+      @schema_cache
+    end
   end
 end
