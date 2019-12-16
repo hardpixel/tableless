@@ -4,6 +4,10 @@ module Tableless
       {}
     end
 
+    def columns_hash?(table_name)
+      true
+    end
+
     def data_source_exists?(table_name)
       false
     end
