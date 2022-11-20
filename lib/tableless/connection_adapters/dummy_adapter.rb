@@ -8,5 +8,13 @@ module Tableless
     def schema_cache
       @schema_cache
     end
+
+    def get_schema_cache(*)
+      @schema_cache
+    end
+
+    def db_config(*)
+      @db_config ||= OpenStruct.new(adapter: :dummy)
+    end
   end
 end

@@ -13,6 +13,10 @@ module Tableless
       def attribute_names
         @attribute_names ||= attribute_types.keys
       end
+
+      def connection_pool(*)
+        @connection_pool ||= Tableless::DummyAdapter.new(nil)
+      end
     end
   end
 end

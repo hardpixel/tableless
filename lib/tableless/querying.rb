@@ -6,6 +6,10 @@ module Tableless
       def find_by_sql(*)
         []
       end
+
+      def _query_by_sql(*)
+        []
+      end
     end
   end
 end
