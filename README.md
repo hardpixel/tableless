@@ -3,7 +3,7 @@
 Create models that are not bound to the database and take advantage of the ActiveRecord features, such as validation, relationships, etc.
 
 [![Gem Version](https://badge.fury.io/rb/tableless.svg)](https://badge.fury.io/rb/tableless)
-[![Build Status](https://travis-ci.org/hardpixel/tableless.svg?branch=master)](https://travis-ci.org/hardpixel/tableless)
+[![Build](https://github.com/hardpixel/tableless/actions/workflows/build.yml/badge.svg)](https://github.com/hardpixel/tableless/actions/workflows/build.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/853a6013a50339b2baea/maintainability)](https://codeclimate.com/github/hardpixel/tableless/maintainability)
 
 ## Installation
