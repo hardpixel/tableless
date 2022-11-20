@@ -20,7 +20,11 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         ruby: [2.7, 3.1]
+        gemfile: [ar6, ar7]
     runs-on: ${{ matrix.os }}
+
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/test/gemfiles/${{ matrix.gemfile }}.gemfile
 
     steps:
       - uses: actions/checkout@v3
