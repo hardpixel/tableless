@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'tableless/connection_adapters/schema_cache'
 require 'tableless/connection_adapters/dummy_adapter'
 

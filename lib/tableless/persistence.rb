@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tableless
   module Persistence
     extend ActiveSupport::Concern
@@ -13,7 +15,7 @@ module Tableless
     end
 
     def reload(*)
-      @attributes = self.class.new.instance_variable_get('@attributes')
+      @attributes = self.class.new.instance_variable_get(:@attributes)
       @new_record = false
       self
     end

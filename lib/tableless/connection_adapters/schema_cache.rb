@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 module Tableless
   class SchemaCache
-    def columns_hash(table_name)
+    def columns_hash(_table_name)
       {}
     end
 
-    def columns_hash?(table_name)
+    def columns_hash?(_table_name)
       true
     end
 
-    def data_source_exists?(table_name)
+    def data_source_exists?(_table_name)
       false
     end
 
-    def clear_data_source_cache!(table_name)
+    def clear_data_source_cache!(_table_name)
       true
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tableless
   class DummyAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
     def initialize(*)
