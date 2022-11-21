@@ -2,13 +2,36 @@
 
 require 'test_helper'
 
+class Topic < ActiveRecord::Base
+  include Tableless
+
+  has_many :messages
+
+  attribute :title, :string
+  attribute :text,  :string
+
+  validates :title, presence: true
+
+  accepts_nested_attributes_for :messages
+end
+
 class Message < ActiveRecord::Base
   include Tableless
+
+  attribute :topic_id
+  belongs_to :topic
+
+  has_many :replies
 
   attribute :name,  :string
   attribute :email, :string
 
   validates :name, :email, presence: true
+end
+
+class Reply < Message
+  attribute :message_id
+  belongs_to :message
 end
 
 class TablelessTest < Minitest::Test
@@ -45,5 +68,31 @@ class TablelessTest < Minitest::Test
   def test_that_create_returns_record
     msg = Message.create(name: 'User', email: 'user@mail.com')
     assert_instance_of Message, msg
+  end
+
+  def test_that_it_accepts_belongs_to
+    top = Topic.new(title: 'Testing')
+    msg = Message.new(name: 'User', email: 'user@mail.com', topic: top)
+
+    assert_instance_of Topic, msg.topic
+  end
+
+  def test_that_it_accepts_has_many
+    msg = Message.new(name: 'User')
+    top = Topic.new(title: 'Testing', messages: [msg])
+
+    assert_instance_of Message, top.messages.first
+  end
+
+  def test_that_inheritance_works
+    msg = Message.new(name: 'User')
+    rep = Reply.new(name: 'Replier', message: msg)
+
+    assert_instance_of Message, rep.message
+  end
+
+  def test_that_it_accepts_nested_attributes
+    top = Topic.new(title: 'Testing', messages_attributes: [{ name: 'User' }])
+    assert_instance_of Message, top.messages.first
   end
 end
