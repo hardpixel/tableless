@@ -18,5 +18,9 @@ module Tableless
     def db_config(*)
       @db_config ||= OpenStruct.new(adapter: :dummy)
     end
+
+    def with_connection(*)
+      yield self
+    end
   end
 end
