@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'ostruct'
 
 module Tableless
   class DummyAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
