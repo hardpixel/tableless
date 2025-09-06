@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-require 'ostruct'
 
 module Tableless
   class DummyAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
+    DbConfig = Struct.new(:adapter)
+
     def initialize(*)
       super
       @schema_cache = Tableless::SchemaCache.new
@@ -17,7 +18,7 @@ module Tableless
     end
 
     def db_config(*)
-      @db_config ||= OpenStruct.new(adapter: :dummy)
+      @db_config ||= DbConfig.new(:dummy)
     end
 
     def with_connection(*)
