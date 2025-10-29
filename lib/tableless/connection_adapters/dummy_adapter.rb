@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'tableless/connection_adapters/schema_cache'
+require 'tableless/connection_adapters/null_pool'
+
 module Tableless
   class DummyAdapter < ActiveRecord::ConnectionAdapters::AbstractAdapter
     DbConfig = Struct.new(:adapter)
@@ -7,6 +10,7 @@ module Tableless
     def initialize(*)
       super
       @schema_cache = Tableless::SchemaCache.new
+      @pool = Tableless::NullPool.new
     end
 
     def schema_cache
